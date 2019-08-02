@@ -110,3 +110,18 @@
   background: linear-gradient(#bf3813, #c45e38);
   margin: 2% auto;
 }
+
+.RedOnion {
+  width: 80%;
+  height: 4%;
+  background: linear-gradient(#9b0e60, #c77ba7);
+  margin: 2% auto;
+  border-radius: 10px;
+}
+
+.Pickles {
+  width: 76%;
+  height: 3%;
+  background: linear-gradient(#4e5a00, #b8d307);
+  margin: 2% auto;
+}

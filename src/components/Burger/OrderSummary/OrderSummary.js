@@ -1,24 +1,50 @@
 import React from 'react';
+import Button from '../../UI/Button/Button';
+import styles from './OrderSummary.module.css';
 
-const OrderSummary = (props) => {
-  const ingredientSummary = Object.keys(props.ingredients).map((igKey) => {
-    return (
-      <li key={igKey}>
-        <span style={{ textTransform: 'capitalize' }}>{igKey}</span>:{' '}
-        {props.ingredients[igKey]}
-      </li>
+class OrderSummary extends React.Component {
+  // This could be a functional component, doesn't have to be a class
+  componentDidUpdate() {
+    console.log('[OrderSummary] will update');
+  }
+
+  render() {
+    const ingredientSummary = Object.keys(this.props.ingredients).map(
+      (igKey) => {
+        return (
+          <li key={igKey}>
+            <span style={{ textTransform: 'capitalize' }}>{igKey}</span>:{' '}
+            {this.props.ingredients[igKey]}
+          </li>
+        );
+      },
     );
-  });
-  return (
-    <React.Fragment>
-      <h3>Your Order</h3>
-      <p>A delicious burger with the following ingredients:</p>
-      <ul>{ingredientSummary}</ul>
-      <p>Continue to Checkout?</p>
-      <button style={{ textTransform: 'capitalize' }}>Cancel</button>
-      <button style={{ textTransform: 'capitalize' }}>Continue</button>
-    </React.Fragment>
-  );
-};
+    return (
+      <React.Fragment>
+        <h3>Your Order</h3>
+        <p>A delicious burger with the following ingredients:</p>
+        <ul>{ingredientSummary}</ul>
+        <p>
+          <strong>Total Price: ${this.props.price.toFixed(2)}</strong>
+        </p>
+        <p>Continue to Checkout?</p>
+        <Button
+          classes={styles.uppercase}
+          clicked={this.props.purchaseCanceled}
+          btnType="Danger"
+        >
+          Cancel
+        </Button>
+        <Button
+          classes={styles.uppercase}
+          clicked={this.props.purchaseContinued}
+          btnType="Success"
+        >
+          Continue
+        </Button>
+      </React.Fragment>
+    );
+  }
+}
 
 export default OrderSummary;
