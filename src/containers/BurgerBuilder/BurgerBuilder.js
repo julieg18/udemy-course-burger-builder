@@ -7,7 +7,7 @@ import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 const INGREDIENT_PRICES = {
   salad: 0.1,
   cheese: 0.2,
-  meat: 0.5,
+  meat: 0.75,
   bacon: 0.3,
   redOnion: 0.2,
   pickles: 0.1,
@@ -94,6 +94,11 @@ class BurgerBuilder extends React.Component {
     for (let key in disabledInfo) {
       disabledInfo[key] = disabledInfo[key] <= 0;
     }
+    let formattedTotalPrice = new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 2,
+    }).format(this.state.totalPrice);
     return (
       <React.Fragment>
         <Modal
@@ -101,7 +106,7 @@ class BurgerBuilder extends React.Component {
           modalClosed={this.purchaseCancelHandler}
         >
           <OrderSummary
-            price={this.state.totalPrice}
+            price={formattedTotalPrice}
             purchaseContinued={this.purchaseContinueHandler}
             purchaseCanceled={this.purchaseCancelHandler}
             ingredients={this.state.ingredients}
@@ -112,7 +117,7 @@ class BurgerBuilder extends React.Component {
           ingredientRemoved={this.removeIngredientHandler}
           ingredientAdded={this.addIngredientHandler}
           disabled={disabledInfo}
-          price={this.state.totalPrice}
+          price={formattedTotalPrice}
           purchaseable={this.state.purchaseable}
           ordered={this.purchaseHandler}
         />

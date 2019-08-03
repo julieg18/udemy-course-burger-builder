@@ -11,6 +11,7 @@ class OrderSummary extends React.Component {
   render() {
     const ingredientSummary = Object.keys(this.props.ingredients).map(
       (igKey) => {
+        igKey = igKey === 'redOnion' ? 'red Onion' : igKey;
         return (
           <li key={igKey}>
             <span style={{ textTransform: 'capitalize' }}>{igKey}</span>:{' '}
@@ -25,7 +26,7 @@ class OrderSummary extends React.Component {
         <p>A delicious burger with the following ingredients:</p>
         <ul>{ingredientSummary}</ul>
         <p>
-          <strong>Total Price: ${this.props.price.toFixed(2)}</strong>
+          <strong>Total Price: {this.props.price}</strong>
         </p>
         <p>Continue to Checkout?</p>
         <Button
