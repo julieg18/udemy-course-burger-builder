@@ -88,6 +88,14 @@
   border-radius: 15px;
 }
 
+.VeggieBurgerMeat {
+  width: 80%;
+  height: 8%;
+  background: linear-gradient(#251003, #441c04);
+  margin: 2% auto;
+  border-radius: 15px;
+}
+
 .Cheese {
   width: 90%;
   height: 4.5%;
