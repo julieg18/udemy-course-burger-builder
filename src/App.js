@@ -4,8 +4,6 @@ import Layout from './containers/Layout/Layout';
 import './App.module.css';
 
 class App extends React.Component {
-  state = {};
-
   render() {
     return (
       <div>
