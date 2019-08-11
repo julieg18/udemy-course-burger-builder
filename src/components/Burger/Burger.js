@@ -17,6 +17,10 @@ const Burger = (props) => {
   if (transformedIngredients.length === 0) {
     transformedIngredients = <p>Please start adding ingredients!</p>;
   }
+  console.log('burger', props.ingredients);
+  console.count('burger', props.ingredients);
+  console.log('trans', transformedIngredients);
+  console.count('trans', transformedIngredients);
   return (
     <div className={styles.Burger}>
       <BurgerIngredient ingredientType="bread-top" />

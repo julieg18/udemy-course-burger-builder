@@ -11,12 +11,18 @@ class OrderSummary extends React.Component {
   render() {
     const ingredientSummary = Object.keys(this.props.ingredients).map(
       (igKey) => {
-        igKey = igKey === 'redOnion' ? 'red Onion' : igKey;
-        igKey = igKey === 'veggieBurgerMeat' ? 'Veggie Burger Meat' : igKey;
+        let ingredientName = igKey;
+        ingredientName = ingredientName === 'redOnion' ? 'red Onion' : igKey;
+        ingredientName =
+          ingredientName === 'veggieBurgerMeat'
+            ? 'Veggie Burger Meat'
+            : ingredientName;
         return (
           <li key={igKey}>
-            <span style={{ textTransform: 'capitalize' }}>{igKey}</span>:{' '}
-            {this.props.ingredients[igKey]}
+            <span style={{ textTransform: 'capitalize' }}>
+              {ingredientName}
+            </span>
+            : {this.props.ingredients[igKey]}
           </li>
         );
       },
