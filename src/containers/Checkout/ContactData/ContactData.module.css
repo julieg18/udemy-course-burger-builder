@@ -8,14 +8,6 @@
   box-sizing: border-box;
 }
 
-.Input {
-  display: block;
-}
-
-.Input p {
-  font-size: smaller;
-}
-
 .uppercase {
   text-transform: uppercase;
 }
