@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/udemy-course-burger-builder/static/css/main.6cf4ade0.chunk.css",
+    "main.js": "/udemy-course-burger-builder/static/js/main.f0820ebb.chunk.js",
+    "main.js.map": "/udemy-course-burger-builder/static/js/main.f0820ebb.chunk.js.map",
+    "runtime~main.js": "/udemy-course-burger-builder/static/js/runtime~main.cb0bd3f7.js",
+    "runtime~main.js.map": "/udemy-course-burger-builder/static/js/runtime~main.cb0bd3f7.js.map",
+    "static/js/2.594fa91d.chunk.js": "/udemy-course-burger-builder/static/js/2.594fa91d.chunk.js",
+    "static/js/2.594fa91d.chunk.js.map": "/udemy-course-burger-builder/static/js/2.594fa91d.chunk.js.map",
+    "index.html": "/udemy-course-burger-builder/index.html",
+    "precache-manifest.696b1738c176f90e9b1a1bf04e83c88d.js": "/udemy-course-burger-builder/precache-manifest.696b1738c176f90e9b1a1bf04e83c88d.js",
+    "service-worker.js": "/udemy-course-burger-builder/service-worker.js",
+    "static/css/main.6cf4ade0.chunk.css.map": "/udemy-course-burger-builder/static/css/main.6cf4ade0.chunk.css.map",
+    "static/media/burger-logo.png": "/udemy-course-burger-builder/static/media/burger-logo.b8503d26.png"
+  }
+}
