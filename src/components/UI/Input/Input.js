@@ -58,7 +58,6 @@ const Input = (props) => {
         />
       );
   }
-  console.log(inputElement);
   return (
     <div className={styles.Input}>
       <label className={styles.Label}>{props.label}</label>
