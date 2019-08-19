@@ -8,7 +8,8 @@ import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import styles from './BurgerBuilder.module.css';
-import * as actionTypes from '../../store/actions';
+import * as burgerBuilderActions from '../../store/actions/index';
+const { addIngredient, removeIngredient } = burgerBuilderActions;
 
 class BurgerBuilder extends React.Component {
   constructor(props) {
@@ -16,19 +17,11 @@ class BurgerBuilder extends React.Component {
     this.state = {
       purchasing: false,
       loading: false,
-      error: false,
     };
   }
 
   componentDidMount() {
-    axios
-      .get('https://react-burger-builder-d296e.firebaseio.com/ingredients.json')
-      .then((response) => {
-        this.setState({ ingredients: response.data });
-      })
-      .catch((error) => {
-        this.setState({ error: true });
-      });
+    console.log(this.props);
   }
 
   updatePurchaseableState(ingredients) {
@@ -119,9 +112,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     onIngredientAdded: (ingredientName) =>
-      dispatch({ type: actionTypes.ADD_INGREDIENT, ingredientName }),
+      dispatch(addIngredient(ingredientName)),
     onIngredientRemoved: (ingredientName) => {
-      dispatch({ type: actionTypes.REMOVE_INGREDIENT, ingredientName });
+      dispatch(removeIngredient(ingredientName));
     },
   };
 }
