@@ -7,34 +7,34 @@ const {
   FETCH_INGREDIENTS_FAILED,
 } = actionTypes;
 
-export function addIngredient(ingName) {
+function addIngredient(ingName) {
   return {
     type: ADD_INGREDIENT,
     ingredientName: ingName,
   };
 }
 
-export function removeIngredient(ingName) {
+function removeIngredient(ingName) {
   return {
     type: REMOVE_INGREDIENT,
     ingredientName: ingName,
   };
 }
 
-export function setIngredients(ingredients) {
+function setIngredients(ingredients) {
   return {
     type: SET_INGREDIENTS,
     ingredients,
   };
 }
 
-export function fetchIngredientFailed() {
+function fetchIngredientFailed() {
   return {
     type: FETCH_INGREDIENTS_FAILED,
   };
 }
 
-export function initIngredients() {
+function initIngredients() {
   return (dispatch) => {
     axios
       .get('https://react-burger-builder-d296e.firebaseio.com/ingredients.json')
@@ -46,3 +46,11 @@ export function initIngredients() {
       });
   };
 }
+
+export {
+  addIngredient,
+  removeIngredient,
+  setIngredients,
+  fetchIngredientFailed,
+  initIngredients,
+};

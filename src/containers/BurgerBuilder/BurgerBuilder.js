@@ -8,8 +8,13 @@ import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import styles from './BurgerBuilder.module.css';
-import * as burgerBuilderActions from '../../store/actions/index';
-const { addIngredient, removeIngredient } = burgerBuilderActions;
+import * as actions from '../../store/actions/index';
+const {
+  addIngredient,
+  removeIngredient,
+  initIngredients,
+  purchaseInit,
+} = actions;
 
 class BurgerBuilder extends React.Component {
   constructor(props) {
@@ -21,7 +26,7 @@ class BurgerBuilder extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
+    this.props.onInitIngredients();
   }
 
   updatePurchaseableState(ingredients) {
@@ -38,6 +43,7 @@ class BurgerBuilder extends React.Component {
   };
 
   purchaseContinueHandler = () => {
+    this.props.onInitPurchase();
     this.props.history.push({
       pathname: '/checkout',
     });
@@ -56,7 +62,7 @@ class BurgerBuilder extends React.Component {
       minimumFractionDigits: 2,
     }).format(this.props.totalPrice);
     let orderSummary = null;
-    let burger = this.state.error ? (
+    let burger = this.props.error ? (
       <p className={styles.BurgerLoadingError}>
         Ingredients can not be loaded!
       </p>
@@ -105,8 +111,9 @@ class BurgerBuilder extends React.Component {
 
 function mapStateToProps(state) {
   return {
-    ingredients: state.ingredients,
-    totalPrice: state.totalPrice,
+    ingredients: state.burgerBuilder.ingredients,
+    totalPrice: state.burgerBuilder.totalPrice,
+    error: state.burgerBuilder.error,
   };
 }
 function mapDispatchToProps(dispatch) {
@@ -116,6 +123,8 @@ function mapDispatchToProps(dispatch) {
     onIngredientRemoved: (ingredientName) => {
       dispatch(removeIngredient(ingredientName));
     },
+    onInitIngredients: () => dispatch(initIngredients()),
+    onInitPurchase: () => dispatch(purchaseInit()),
   };
 }
 

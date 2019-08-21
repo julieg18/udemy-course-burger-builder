@@ -3,13 +3,13 @@ import styles from './BuildControls.module.css';
 import BuildControl from './BuildControl/BuildControl';
 
 const controls = [
-  { label: 'Salad', type: 'salad' },
   { label: 'Bacon', type: 'bacon' },
   { label: 'Cheese', type: 'cheese' },
   { label: 'Meat', type: 'meat' },
-  { label: 'Veggie Burger Meat', type: 'veggieBurgerMeat' },
-  { label: 'Red Onion', type: 'redOnion' },
   { label: 'Pickes', type: 'pickles' },
+  { label: 'Red Onion', type: 'redOnion' },
+  { label: 'Salad', type: 'salad' },
+  { label: 'Veggie Burger Meat', type: 'veggieBurgerMeat' },
 ];
 
 const BuildControls = (props) => {
