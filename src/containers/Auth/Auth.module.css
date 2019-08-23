@@ -8,6 +8,14 @@
   box-sizing: border-box;
 }
 
+.errorMessage {
+  text-transform: capitalize;
+  border-radius: 5px;
+  padding: 10px 0px;
+  background-color: #f8aaaa;
+  color: #000;
+}
+
 .uppercase {
   text-transform: uppercase;
 }

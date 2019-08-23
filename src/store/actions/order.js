@@ -31,12 +31,12 @@ function purchaseBurgerStart() {
   };
 }
 
-function purchaseBurger(orderData) {
+function purchaseBurger(orderData, idToken) {
   return (dispatch) => {
     console.warn(dispatch);
     dispatch(purchaseBurgerStart());
     axios
-      .post('/orders.json', orderData)
+      .post(`/orders.json?auth=${idToken}`, orderData)
       .then((response) => {
         dispatch(purchaseBurgerSuccess(response.data.name, orderData));
       })
@@ -71,11 +71,11 @@ function fetchOrdersStart() {
   };
 }
 
-function fetchOrders() {
+function fetchOrders(idToken) {
   return (dispatch) => {
     dispatch(fetchOrdersStart());
     axios
-      .get('/orders.json')
+      .get(`/orders.json?auth=${idToken}`)
       .then((res) => {
         const fetchedOrders = [];
         for (let key in res.data) {
