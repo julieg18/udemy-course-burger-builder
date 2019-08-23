@@ -1,6 +1,12 @@
 import axios from 'axios';
 import * as actionTypes from './actionTypes';
-const { AUTH_START, AUTH_SUCCESS, AUTH_FAIL, AUTH_LOGOUT } = actionTypes;
+const {
+  AUTH_START,
+  AUTH_SUCCESS,
+  AUTH_FAIL,
+  AUTH_LOGOUT,
+  SET_AUTH_REDIRECT_PATH,
+} = actionTypes;
 
 function authStart() {
   return {
@@ -67,4 +73,19 @@ function auth(email, password, isSignup) {
   };
 }
 
-export { authStart, authSuccess, authFail, logout, checkAuthTimeout, auth };
+function setAuthRedirectPath(path) {
+  return {
+    type: SET_AUTH_REDIRECT_PATH,
+    path,
+  };
+}
+
+export {
+  authStart,
+  authSuccess,
+  authFail,
+  logout,
+  checkAuthTimeout,
+  auth,
+  setAuthRedirectPath,
+};
