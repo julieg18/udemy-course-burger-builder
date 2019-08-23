@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6a73a76232131bbc37fde7d23fd5138d",
+    "revision": "a68119243c58f1762240602e3cc63d65",
     "url": "/udemy-course-burger-builder/index.html"
   },
   {
-    "revision": "c9b4e7e14ba9dc22e43c",
-    "url": "/udemy-course-burger-builder/static/css/main.6a085a01.chunk.css"
+    "revision": "7314928db1e34ca8a739",
+    "url": "/udemy-course-burger-builder/static/css/main.a2db53c5.chunk.css"
   },
   {
-    "revision": "34bb7cbffd6827f44101",
-    "url": "/udemy-course-burger-builder/static/js/2.0f3eecdb.chunk.js"
+    "revision": "9845fb202c4326a1df15",
+    "url": "/udemy-course-burger-builder/static/js/2.58cef123.chunk.js"
   },
   {
-    "revision": "c9b4e7e14ba9dc22e43c",
-    "url": "/udemy-course-burger-builder/static/js/main.b86f09de.chunk.js"
+    "revision": "7314928db1e34ca8a739",
+    "url": "/udemy-course-burger-builder/static/js/main.c4f0d1b8.chunk.js"
   },
   {
     "revision": "98d9102d4eed805e5747",
