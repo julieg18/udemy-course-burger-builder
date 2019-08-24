@@ -35,8 +35,9 @@ function purchaseBurger(orderData, idToken) {
   return (dispatch) => {
     console.warn(dispatch);
     dispatch(purchaseBurgerStart());
+    const queryParams = `?auth=${idToken}`;
     axios
-      .post(`/orders.json?auth=${idToken}`, orderData)
+      .post(`/orders.json${queryParams}`, orderData)
       .then((response) => {
         dispatch(purchaseBurgerSuccess(response.data.name, orderData));
       })
@@ -71,11 +72,12 @@ function fetchOrdersStart() {
   };
 }
 
-function fetchOrders(idToken) {
+function fetchOrders(idToken, userId) {
   return (dispatch) => {
     dispatch(fetchOrdersStart());
+    const queryParams = `?auth=${idToken}&orderBy="userId"&equalTo="${userId}"`;
     axios
-      .get(`/orders.json?auth=${idToken}`)
+      .get(`/orders.json${queryParams}`)
       .then((res) => {
         const fetchedOrders = [];
         for (let key in res.data) {

@@ -30,6 +30,9 @@ function authFail(error) {
 }
 
 function logout() {
+  localStorage.removeItem('token');
+  localStorage.removeItem('expirationTime');
+  localStorage.removeItem('userId');
   return {
     type: AUTH_LOGOUT,
   };
@@ -52,18 +55,20 @@ function auth(email, password, isSignup) {
       returnSecureToken: true,
     };
     console.log(process.env);
-    let url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${
-      process.env.REACT_APP_API_KEY
-    }`;
+    let url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_API_KEY}`;
     if (!isSignup) {
-      url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${
-        process.env.REACT_APP_API_KEY
-      }`;
+      url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_API_KEY}`;
     }
     axios
       .post(url, authData)
       .then((res) => {
         console.log(res);
+        const expirationDate = new Date(
+          new Date().getTime() + res.data.expiresIn * 1000,
+        );
+        localStorage.setItem('token', res.data.idToken);
+        localStorage.setItem('expirationDate', expirationDate);
+        localStorage.setItem('userId', res.data.localId);
         dispatch(authSuccess(res.data.idToken, res.data.localId));
         dispatch(checkAuthTimeout(res.data.expiresIn));
       })
@@ -81,6 +86,27 @@ function setAuthRedirectPath(path) {
   };
 }
 
+function authCheckState() {
+  return (dispatch) => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      dispatch(logout());
+    } else {
+      const expirationDate = new Date(localStorage.getItem('expirationDate'));
+      if (expirationDate <= new Date()) {
+        dispatch(logout());
+      }
+      const userId = localStorage.getItem('userId');
+      dispatch(authSuccess(token, userId));
+      dispatch(
+        checkAuthTimeout(
+          (expirationDate.getTime() - new Date().getTime()) / 1000,
+        ),
+      );
+    }
+  };
+}
+
 export {
   authStart,
   authSuccess,
@@ -89,4 +115,5 @@ export {
   checkAuthTimeout,
   auth,
   setAuthRedirectPath,
+  authCheckState,
 };

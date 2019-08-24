@@ -111,10 +111,12 @@ class ContactData extends React.Component {
         formElementIdentifier
       ].value;
     }
+    const { ingredients, totalPrice, userId } = this.props;
     const order = {
-      ingredients: this.props.ingredients,
-      price: this.props.totalPrice,
+      ingredients,
+      price: totalPrice,
       orderData: formData,
+      userId,
     };
     this.props.onOrderBurger(order, this.props.idToken);
   };
@@ -221,11 +223,14 @@ class ContactData extends React.Component {
 }
 
 function mapStateToProps(state) {
+  const { ingredients, totalPrice } = state.burgerBuilder;
+  const { idToken, userId } = state.auth;
   return {
-    ingredients: state.burgerBuilder.ingredients,
-    totalPrice: state.burgerBuilder.totalPrice,
+    ingredients,
+    totalPrice,
     loading: state.order.loading,
-    idToken: state.auth.idToken,
+    idToken,
+    userId,
   };
 }
 

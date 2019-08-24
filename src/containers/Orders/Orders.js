@@ -9,7 +9,8 @@ const { fetchOrders } = actions;
 
 class Orders extends React.Component {
   componentDidMount() {
-    this.props.onFetchOrders(this.props.idToken);
+    const { idToken, userId } = this.props;
+    this.props.onFetchOrders(idToken, userId);
   }
 
   render() {
@@ -28,18 +29,19 @@ class Orders extends React.Component {
 }
 
 function mapStateToProps(state) {
-  const { idToken } = state.auth;
+  const { idToken, userId } = state.auth;
   const { orders, loading } = state.order;
   return {
     idToken,
     orders,
     loading,
+    userId,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    onFetchOrders: (idToken) => dispatch(fetchOrders(idToken)),
+    onFetchOrders: (idToken, userId) => dispatch(fetchOrders(idToken, userId)),
   };
 }
 
