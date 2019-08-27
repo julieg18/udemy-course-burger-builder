@@ -54,7 +54,6 @@ function auth(email, password, isSignup) {
       password,
       returnSecureToken: true,
     };
-    console.log(process.env);
     let url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.REACT_APP_API_KEY}`;
     if (!isSignup) {
       url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${process.env.REACT_APP_API_KEY}`;
@@ -62,7 +61,6 @@ function auth(email, password, isSignup) {
     axios
       .post(url, authData)
       .then((res) => {
-        console.log(res);
         const expirationDate = new Date(
           new Date().getTime() + res.data.expiresIn * 1000,
         );
@@ -73,7 +71,6 @@ function auth(email, password, isSignup) {
         dispatch(checkAuthTimeout(res.data.expiresIn));
       })
       .catch((err) => {
-        console.log(err);
         dispatch(authFail(err.response.data.error));
       });
   };

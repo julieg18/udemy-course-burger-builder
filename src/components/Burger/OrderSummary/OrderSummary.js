@@ -4,9 +4,6 @@ import styles from './OrderSummary.module.css';
 
 class OrderSummary extends React.Component {
   // This could be a functional component, doesn't have to be a class
-  componentDidUpdate() {
-    console.log('[OrderSummary] will update');
-  }
 
   render() {
     const ingredientSummary = Object.keys(this.props.ingredients).map(

@@ -33,7 +33,6 @@ function purchaseBurgerStart() {
 
 function purchaseBurger(orderData, idToken) {
   return (dispatch) => {
-    console.warn(dispatch);
     dispatch(purchaseBurgerStart());
     const queryParams = `?auth=${idToken}`;
     axios

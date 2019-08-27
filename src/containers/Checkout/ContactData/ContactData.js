@@ -6,9 +6,8 @@ import axios from '../../../axios-orders';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import Input from '../../../components/UI/Input/Input';
 import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
-import { updateObject } from '../../../shared/utility';
-import * as orderActions from '../../../store/actions/index';
-const { purchaseBurger } = orderActions;
+import { updateObject, checkValidity } from '../../../shared/utility';
+import { purchaseBurger } from '../../../store/actions/index';
 
 class ContactData extends React.Component {
   state = {
@@ -122,38 +121,12 @@ class ContactData extends React.Component {
     this.props.onOrderBurger(order, this.props.idToken);
   };
 
-  checkValidity(value, rules) {
-    let isValid = true;
-    if (!rules) {
-      return true;
-    }
-
-    if (rules.required) {
-      isValid = value.trim() !== '' && isValid;
-    }
-
-    if (rules.minLength) {
-      isValid = value.length >= rules.minLength && isValid;
-    }
-
-    if (rules.maxLength) {
-      isValid = value.length <= rules.maxLength && isValid;
-    }
-
-    if (rules.isEmail) {
-      const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      isValid = pattern.test(value) && isValid;
-    }
-
-    return isValid;
-  }
-
   inputChangedHandler = (event, inputIdentifier) => {
     const updatedFormElement = updateObject(
       this.state.orderForm[inputIdentifier],
       {
         value: event.target.value,
-        valid: this.checkValidity(
+        valid: checkValidity(
           event.target.value,
           this.state.orderForm[inputIdentifier].validation,
         ),
