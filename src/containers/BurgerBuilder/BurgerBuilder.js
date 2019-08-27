@@ -8,14 +8,13 @@ import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import styles from './BurgerBuilder.module.css';
-import * as actions from '../../store/actions/index';
-const {
+import {
   addIngredient,
   removeIngredient,
   initIngredients,
   purchaseInit,
   setAuthRedirectPath,
-} = actions;
+} from '../../store/actions/index';
 
 class BurgerBuilder extends React.Component {
   constructor(props) {

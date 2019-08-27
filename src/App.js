@@ -6,8 +6,7 @@ import asyncComponent from './hoc/asyncComponent/asyncComponent';
 import Layout from './containers/Layout/Layout';
 import './App.module.css';
 import Logout from './containers/Auth/Logout/Logout';
-import * as actions from './store/actions/index';
-const { authCheckState } = actions;
+import { authCheckState } from './store/actions/index';
 
 const asyncCheckout = asyncComponent(() => {
   return import('./containers/Checkout/Checkout');
