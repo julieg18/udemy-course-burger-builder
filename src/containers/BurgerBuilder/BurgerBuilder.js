@@ -16,7 +16,7 @@ import {
   setAuthRedirectPath,
 } from '../../store/actions/index';
 
-class BurgerBuilder extends React.Component {
+export class BurgerBuilder extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
