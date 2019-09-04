@@ -26,7 +26,9 @@ export class BurgerBuilder extends React.Component {
   }
 
   componentDidMount() {
-    this.props.onInitIngredients();
+    if (!this.props.ingredients) {
+      this.props.onInitIngredients();
+    }
   }
 
   updatePurchaseableState(ingredients) {

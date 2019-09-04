@@ -7,7 +7,7 @@ import Spinner from '../../../components/UI/Spinner/Spinner';
 import Input from '../../../components/UI/Input/Input';
 import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
 import { updateObject, checkValidity } from '../../../shared/utility';
-import { purchaseBurger } from '../../../store/actions/index';
+import { purchaseBurger, initIngredients } from '../../../store/actions/index';
 
 class ContactData extends React.Component {
   state = {
@@ -179,6 +179,7 @@ class ContactData extends React.Component {
           btnType="Success"
           className={styles.uppercase}
           disabled={!this.state.formIsValid}
+          clicked={this.props.onInitIngredients}
         >
           Order
         </Button>
@@ -187,6 +188,8 @@ class ContactData extends React.Component {
     if (this.props.loading) {
       form = <Spinner />;
     }
+    console.log(this.props.onInitIngredients);
+    console.log(this.props.onOrderBurger);
     return (
       <div className={styles.ContactData}>
         <h4>Enter Your Contact Data</h4>
@@ -212,6 +215,7 @@ function mapDispatchToProps(dispatch) {
   return {
     onOrderBurger: (orderData, idToken) =>
       dispatch(purchaseBurger(orderData, idToken)),
+    onInitIngredients: () => dispatch(initIngredients()),
   };
 }
 
