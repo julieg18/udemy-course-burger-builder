@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/udemy-course-burger-builder/precache-manifest.41da0258c80132469e4a997d8dc541e9.js"
+  "/udemy-course-burger-builder/precache-manifest.e448f7b079f9d3928f4e2d44b9081959.js"
 );
 
 self.addEventListener('message', (event) => {
