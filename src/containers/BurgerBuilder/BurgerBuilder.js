@@ -78,8 +78,13 @@ export class BurgerBuilder extends React.Component {
     );
     if (this.props.ingredients) {
       burger = (
-        <React.Fragment>
+        <div className={styles.BurgerBuilder}>
+          <div className={styles.BurgerContainer}>
+
           <Burger ingredients={this.props.ingredients} />
+          </div>
+          <div className={styles.BurgerControlsContainer}>
+
           <BurgerControls
             ingredientRemoved={this.props.onIngredientRemoved}
             ingredientAdded={this.props.onIngredientAdded}
@@ -88,8 +93,9 @@ export class BurgerBuilder extends React.Component {
             purchaseable={this.updatePurchaseableState(this.props.ingredients)}
             ordered={this.purchaseHandler}
             isAuth={this.props.isAuthenticated}
-          />
-        </React.Fragment>
+            />
+            </div>
+        </div>
       );
       orderSummary = (
         <OrderSummary

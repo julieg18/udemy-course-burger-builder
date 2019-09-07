@@ -18,10 +18,12 @@ const Burger = (props) => {
     transformedIngredients = <p>Please start adding ingredients!</p>;
   }
   return (
-    <div className={styles.Burger}>
-      <BurgerIngredient ingredientType="bread-top" />
-      {transformedIngredients}
-      <BurgerIngredient ingredientType="bread-bottom" />
+    <div className={styles.BurgerScrollArea}>
+      <div className={styles.Burger}>
+        <BurgerIngredient ingredientType="bread-top" />
+        {transformedIngredients}
+        <BurgerIngredient ingredientType="bread-bottom" />
+      </div>
     </div>
   );
 };

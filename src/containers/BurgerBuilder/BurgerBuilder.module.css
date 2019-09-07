@@ -1,3 +1,31 @@
-.BurgerLoadingError {
-  text-align: center;
+.BurgerControlsContainer {
+  background-color: #df8f2e;
+}
+
+@media (min-width: 800px) {
+  .BurgerBuilder {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    align-items: center;
+  }
+
+  .BurgerContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .BurgerControlsContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .BurgerLoadingError {
+    text-align: center;
+  }
 }
