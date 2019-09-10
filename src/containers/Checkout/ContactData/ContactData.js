@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import Button from '../../../components/UI/Button/Button';
-import styles from './ContactData.module.css';
 import axios from '../../../axios-orders';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 import Input from '../../../components/UI/Input/Input';
 import withErrorHandler from '../../../hoc/withErrorHandler/withErrorHandler';
 import { updateObject, checkValidity } from '../../../shared/utility';
 import { purchaseBurger, initIngredients } from '../../../store/actions/index';
+import styles from './ContactData.module.css';
 
 class ContactData extends React.Component {
   state = {

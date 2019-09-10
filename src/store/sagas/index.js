@@ -1,5 +1,5 @@
 import { takeEvery, all, takeLatest } from 'redux-saga/effects';
-import * as actionTypes from '../actions/actionTypes';
+
 import {
   logoutSaga,
   checkAuthTimeoutSaga,
@@ -16,7 +16,7 @@ const {
   AUTH_CHECK_STATE,
   PURCHASE_BURGER,
   FETCH_ORDERS,
-} = actionTypes;
+} = '../actions/actionTypes';
 
 function* watchAuth() {
   yield all([

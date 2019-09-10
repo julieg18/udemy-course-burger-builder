@@ -1,4 +1,3 @@
-import * as actionTypes from './actionTypes';
 const {
   AUTH_START,
   AUTH_SUCCESS,
@@ -9,7 +8,7 @@ const {
   SET_AUTH_REDIRECT_PATH,
   AUTH_CHECK_TIMEOUT,
   AUTH_CHECK_STATE,
-} = actionTypes;
+} = './actionTypes';
 
 function authStart() {
   return {

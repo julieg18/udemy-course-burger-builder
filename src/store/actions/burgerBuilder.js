@@ -1,11 +1,10 @@
-import * as actionTypes from './actionTypes';
 const {
   ADD_INGREDIENT,
   REMOVE_INGREDIENT,
   SET_INGREDIENTS,
   FETCH_INGREDIENTS_FAILED,
   INIT_INGREDIENTS,
-} = actionTypes;
+} = './actionTypes';
 
 function addIngredient(ingName) {
   return {

@@ -1,11 +1,10 @@
-import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../../shared/utility';
 const {
   ADD_INGREDIENT,
   REMOVE_INGREDIENT,
   SET_INGREDIENTS,
   FETCH_INGREDIENTS_FAILED,
-} = actionTypes;
+} = '../actions/actionTypes';
 
 const initialState = {
   ingredients: null,

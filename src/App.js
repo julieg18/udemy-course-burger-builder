@@ -1,7 +1,8 @@
 import React from 'react';
-import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
+
+import BurgerBuilder from './containers/BurgerBuilder/BurgerBuilder';
 import asyncComponent from './hoc/asyncComponent/asyncComponent';
 import Layout from './containers/Layout/Layout';
 import './App.module.css';

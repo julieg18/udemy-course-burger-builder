@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import axios from '../../axios-orders';
 import Burger from '../../components/Burger/Burger';
 import BurgerControls from '../../components/Burger/BuildControls/BuildControls';
@@ -7,7 +8,6 @@ import Modal from '../../components/UI/Modal/Modal';
 import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
-import styles from './BurgerBuilder.module.css';
 import {
   addIngredient,
   removeIngredient,
@@ -15,6 +15,7 @@ import {
   purchaseInit,
   setAuthRedirectPath,
 } from '../../store/actions/index';
+import styles from './BurgerBuilder.module.css';
 
 export class BurgerBuilder extends React.Component {
   constructor(props) {
@@ -80,21 +81,21 @@ export class BurgerBuilder extends React.Component {
       burger = (
         <div className={styles.BurgerBuilder}>
           <div className={styles.BurgerContainer}>
-
-          <Burger ingredients={this.props.ingredients} />
+            <Burger ingredients={this.props.ingredients} />
           </div>
           <div className={styles.BurgerControlsContainer}>
-
-          <BurgerControls
-            ingredientRemoved={this.props.onIngredientRemoved}
-            ingredientAdded={this.props.onIngredientAdded}
-            disabled={disabledInfo}
-            price={formattedTotalPrice}
-            purchaseable={this.updatePurchaseableState(this.props.ingredients)}
-            ordered={this.purchaseHandler}
-            isAuth={this.props.isAuthenticated}
+            <BurgerControls
+              ingredientRemoved={this.props.onIngredientRemoved}
+              ingredientAdded={this.props.onIngredientAdded}
+              disabled={disabledInfo}
+              price={formattedTotalPrice}
+              purchaseable={this.updatePurchaseableState(
+                this.props.ingredients,
+              )}
+              ordered={this.purchaseHandler}
+              isAuth={this.props.isAuthenticated}
             />
-            </div>
+          </div>
         </div>
       );
       orderSummary = (

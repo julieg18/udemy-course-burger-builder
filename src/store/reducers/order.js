@@ -1,4 +1,3 @@
-import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../../shared/utility';
 const {
   PURCHASE_BURGER_SUCCESS,
@@ -8,7 +7,7 @@ const {
   FETCH_ORDERS_FAIL,
   FETCH_ORDERS_START,
   FETCH_ORDERS_SUCCESS,
-} = actionTypes;
+} = '../actions/actionTypes';
 
 const initialState = {
   orders: [],

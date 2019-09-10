@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
-import styles from './Auth.module.css';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import { updateObject, checkValidity } from '../../shared/utility';
 import { auth, setAuthRedirectPath } from '../../store/actions/index';
+import styles from './Auth.module.css';
 
 class Auth extends React.Component {
   state = {

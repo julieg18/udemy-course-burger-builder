@@ -1,4 +1,3 @@
-import * as actionTypes from './actionTypes';
 const {
   PURCHASE_BURGER,
   PURCHASE_BURGER_SUCCESS,
@@ -9,7 +8,7 @@ const {
   FETCH_ORDERS_FAIL,
   FETCH_ORDERS_SUCCESS,
   FETCH_ORDERS_START,
-} = actionTypes;
+} = './actionTypes';
 
 function purchaseBurgerSuccess(id, orderData) {
   return {

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import Backdrop from '../Backdrop/Backdrop';
 import styles from './Model.module.css';
 

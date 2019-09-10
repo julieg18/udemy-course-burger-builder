@@ -1,4 +1,3 @@
-import * as actionTypes from '../actions/actionTypes';
 import { updateObject } from '../../shared/utility';
 const {
   AUTH_START,
@@ -6,7 +5,7 @@ const {
   AUTH_LOGOUT,
   AUTH_SUCCESS,
   SET_AUTH_REDIRECT_PATH,
-} = actionTypes;
+} = '../actions/actionTypes';
 
 const initialState = {
   idToken: null,
