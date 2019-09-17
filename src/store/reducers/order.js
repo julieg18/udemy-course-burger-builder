@@ -1,5 +1,5 @@
 import { updateObject } from '../../shared/utility';
-const {
+import {
   PURCHASE_BURGER_SUCCESS,
   PURCHASE_BURGER_FAIL,
   PURCHASE_BURGER_START,
@@ -7,7 +7,7 @@ const {
   FETCH_ORDERS_FAIL,
   FETCH_ORDERS_START,
   FETCH_ORDERS_SUCCESS,
-} = '../actions/actionTypes';
+} from '../actions/actionTypes';
 
 const initialState = {
   orders: [],

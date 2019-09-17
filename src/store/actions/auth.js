@@ -1,4 +1,4 @@
-const {
+import {
   AUTH_START,
   AUTH_SUCCESS,
   AUTH_FAIL,
@@ -8,7 +8,7 @@ const {
   SET_AUTH_REDIRECT_PATH,
   AUTH_CHECK_TIMEOUT,
   AUTH_CHECK_STATE,
-} = './actionTypes';
+} from './actionTypes';
 
 function authStart() {
   return {

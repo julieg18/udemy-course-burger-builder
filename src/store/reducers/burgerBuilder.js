@@ -1,10 +1,10 @@
 import { updateObject } from '../../shared/utility';
-const {
+import {
   ADD_INGREDIENT,
   REMOVE_INGREDIENT,
   SET_INGREDIENTS,
   FETCH_INGREDIENTS_FAILED,
-} = '../actions/actionTypes';
+} from '../actions/actionTypes';
 
 const initialState = {
   ingredients: null,

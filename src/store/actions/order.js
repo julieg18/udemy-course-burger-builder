@@ -1,4 +1,4 @@
-const {
+import {
   PURCHASE_BURGER,
   PURCHASE_BURGER_SUCCESS,
   PURCHASE_BURGER_FAIL,
@@ -8,7 +8,7 @@ const {
   FETCH_ORDERS_FAIL,
   FETCH_ORDERS_SUCCESS,
   FETCH_ORDERS_START,
-} = './actionTypes';
+} from './actionTypes';
 
 function purchaseBurgerSuccess(id, orderData) {
   return {

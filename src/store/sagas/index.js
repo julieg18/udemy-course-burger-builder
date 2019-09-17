@@ -8,7 +8,7 @@ import {
 } from './auth';
 import { initIngredientsSaga } from './burgerBuilder';
 import { purchaseBurgerSaga, fetchOrdersSaga } from './order';
-const {
+import {
   INIT_INGREDIENTS,
   AUTH_CHECK_TIMEOUT,
   AUTH_INITIATE_LOGOUT,
@@ -16,7 +16,7 @@ const {
   AUTH_CHECK_STATE,
   PURCHASE_BURGER,
   FETCH_ORDERS,
-} = '../actions/actionTypes';
+} from '../actions/actionTypes';
 
 function* watchAuth() {
   yield all([

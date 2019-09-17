@@ -1,10 +1,10 @@
-const {
+import {
   ADD_INGREDIENT,
   REMOVE_INGREDIENT,
   SET_INGREDIENTS,
   FETCH_INGREDIENTS_FAILED,
   INIT_INGREDIENTS,
-} = './actionTypes';
+} from './actionTypes';
 
 function addIngredient(ingName) {
   return {
